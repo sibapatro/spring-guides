@@ -18,12 +18,23 @@ public class RestConsumerApplication {
 		SpringApplication.run(RestConsumerApplication.class, args);
 	}
 	
+	/**
+	 * uses the Jackson JSON processing library to process the incoming data.
+	 * @param builder
+	 * @return
+	 */
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
 		
 	}
 	
+	/**
+	 * runs the RestTemplate (and, consequently, fetches our quotation) on startup
+	 * @param restTemplate
+	 * @return
+	 * @throws Exception
+	 */
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception{
 		return arg -> {
